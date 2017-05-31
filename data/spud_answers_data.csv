@@ -1,0 +1,59 @@
+id,num,answer,correct
+0,A,Newfoundland,
+0,B,Chihuahua,x
+0,C,Pyrenees,
+0,D,Yorkshire,
+1,A,Franklin D. Roosevelt,
+1,B,Andrew Carnegie,x
+1,C,Abraham Lincoln,
+1,D,Leland Stanford,
+2,A,Silver mines,
+2,B,"El Dorado, lost city of gold",
+2,C,Bird poop,x
+2,D,Slave labor,
+3,A,A miniature replica of Nortre Dame,
+3,B,His head,x
+3,C,The hand of Ste. Clotilde,
+3,D,A cask of beer,
+4,A,Libya and the Federated States of Micronesia,
+4,B,Libya and Myanmar,x
+4,C,Burkina Faso and Togo,
+4,D,Nauru and the Duchy of Grand Fenwick,
+5,A,Chengdu,
+5,B,Guangzhou,x
+5,C,Guangdong,
+5,D,Beijing,
+6,A,New Delhi,
+6,B,New York,
+6,C,Liverpool,x
+6,D,Las Vegas,
+7,A,Oxford University,x
+7,B,The Aztec empire,
+7,C,Kublai Khan's reign as emperor of China,
+7,D,The Chicago Cubs,
+8,A,Montana,
+8,B,Florida,
+8,C,Texas,x
+8,D,Tennessee,
+9,A,"Emperor Norton, local eccentric",
+9,B,"Joe Montana, Hall of Fame quarterback",x
+9,C,"“Big Sky” O'Hara, Barbary Coast-era madam",
+9,D,"Willie Brown, former mayor",
+10,A,True,x
+10,B,False,
+11,A,China,
+11,B,Brazil,
+11,C,Russia,x
+11,D,The Republic of Kiribati,
+12,A,Glasgow Airport,
+12,B,Chhatrapati Shivaji International,
+12,C,Hong Kong International,
+12,D,John F. Kennedy International,x
+13,A,True,
+13,B,False,x
+14,A,Delaware,
+14,B,California,x
+14,C,Colorado,
+14,D,Alaska,
+15,A,True,x
+15,B,False,

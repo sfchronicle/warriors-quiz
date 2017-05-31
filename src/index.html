@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= json.project.seo_title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="__sync_contentCategory" content="meterA">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <%= !json.project.embedded ? t.include("partials/_paywall.html") : t.include("partials/_embedframe.html") %>
+
+    <%= t.include("partials/_head.html") %>
+
+  </head>
+
+  <%= !json.project.embedded ? "<body>" : "<body is='reponsive-body'>" %>
+
+    <div class="outer">
+
+      <div class="quiz-container">
+
+      <% json.data.forEach(function(q,qdx) { %>
+
+        <div class="quiz-box">
+          <% if (qdx == 15) { %>
+            <div class="question"><span class="qnum">Bonus</span><%=q.question%></div>
+          <% } else { %>
+            <div class="question"><span class="qnum"><%=qdx+1%></span><%=q.question%></div>
+          <% } %>
+          <% if (q.image && q.type == "question") { %>
+            <div class="inline-img">
+              <img src="http://ww2.hdnux.com/photos/54/11/64/<%=q.image%>/3/600x0.jpg">
+              <div class="caption"><%=q.caption%> <span class="byline"><%=q.credit%></span></div>
+            </div>
+          <% } %>
+
+          <div id="answer-box-<%=q.id%>">
+            <% json.answers.forEach(function(a,adx) { %>
+              <% if (a.id == q.id){ %>
+                <div class="answer answer<%=q.id%> <%=a.correct%>" id="answer<%=q.id%><%=a.num%>"><span class="num"><%=a.num%></span><%=a.answer%></div>
+              <% } %>
+            <% }); %>
+          </div>
+          <div class="result" id="result<%=q.id%>"></div>
+        </div>
+
+      <% }); %>
+      </div>
+
+      <div class="grade-container">
+        <div class="grade-check" id="grade-check">See your result</div>
+        <div id="grade"></div>
+      </div>
+
+      <hr>
+
+      <div class="credits">
+
+        <div class="entry">Golden State Warriors Beat Writer:  <br>Connor Letourneau • <a href="mailto:cletourneau@sfchronicle.com">cletourneau@sfchronicle.com</a> • <a href = "https://twitter.com/Con_Chron" target="_blank">@Con_Chron</a></div>
+
+        <div class="entry">Assistant Sports Editor:  <br>Janny Hu • <a href="mailto:jhu@sfchronicle.com">jhu@sfchronicle.com</a> • <a href = "https://twitter.com/janny_hu" target="_blank">@janny_hu</a></div>
+
+        <div class="entry">Interactive producer:  <br>Emma O'Neill • <a href="mailto:eoneill@sfchronicle.com">eoneill@sfchronicle.com</a> • <a href = "https://twitter.com/emmaruthoneill" target="_blank">@emmaruthoneill</a></div>
+
+        <div class="entry">Producer:  <br>Kimberly Chua • <a href="mailto:kchua@sfchronicle.com">kchua@sfchronicle.com</a> • <a href = "https://twitter.com/KimberlyAChua" target="_blank">@KimberlyAChua</a></div>
+
+      </div>
+
+    </div>
+
+    <script>
+      var questionsData = <%= JSON.stringify(json.data) %>;
+      var answersData = <%= JSON.stringify(json.answers) %>;
+      var gradeData = <%= JSON.stringify(json.score) %>;
+    </script>
+
+    <script src="app.js" async></script>
+    <%= t.include("partials/_helloSFC.html") %>
+
+  </body>
+</html>
