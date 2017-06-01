@@ -7,6 +7,8 @@
     <meta name="__sync_contentCategory" content="meterA">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="https://pym.nprapps.org/pym.v1.min.js"></script>
+    <script src="http://projects.sfchronicle.com/shared/js/jquery.min.js"></script>
 
     <%= !json.project.embedded ? t.include("partials/_paywall.html") : t.include("partials/_embedframe.html") %>
 
@@ -68,6 +70,10 @@
       </div>
 
     </div>
+
+    <script>
+      var pymChild = new pym.Child({polling: 500});
+    </script>
 
     <script>
       var questionsData = <%= JSON.stringify(json.data) %>;

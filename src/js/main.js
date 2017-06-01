@@ -8,7 +8,7 @@ function hasClass(element, cls) {
 var N = questionsData.length;
 var Nlist = Array.apply(null, {length: N}).map(Number.call, Number);
 // var Gradinglist = new Array(N);
-// Gradinglist = Gradinglist.fill(-1);
+// Gradinglist = Gradinglist.fill(1);
 var Gradinglist = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1];
 
 Nlist.forEach(function(nn){
@@ -29,7 +29,6 @@ Nlist.forEach(function(nn){
         }
       } else {
         var correctAnswer = answersData.filter(function(el){if(el.id == nn && el.correct == "x"){return el}})[0];
-        console.log(correctAnswer);
         if (questionsData[nn]["image"] && (questionsData[nn]["type"] == "answer")) {
           var str = "<i class='fa fa-times-circle-o' aria-hidden='true'></i> Wrong! The correct answer is: "+ correctAnswer["answer"]+".<div class='inline-img inline-answer'><img src='http://ww2.hdnux.com/photos/54/11/64/"+questionsData[nn]["image"]+"/3/600x0.jpg'><div class='caption'>"+questionsData[nn]["caption"]+" <span class='byline'>"+questionsData[nn]["credit"]+"</span></div></div>";
           document.querySelector("#result"+nn).innerHTML = str;
@@ -40,6 +39,7 @@ Nlist.forEach(function(nn){
         }
       }
     }
+    pymChild.sendHeight();
   });
 });
 
@@ -59,20 +59,20 @@ document.getElementById("grade-check").addEventListener("click",function(){
         html_str +="<div class='social-block'>"
 
         // twitter link
-        html_str += "<div class='link social-final'><a id='twitter-icon' title='Share on Twitter' href='https://twitter.com/intent/tweet?url=http%3A%2F%2Fprojects.sfchronicle.com%2F2016%2Fgeography-quiz&text=I got "+sum+" / 16 on the 2017 Chronicle MBA Finals Quiz! Take the test to challenge your Warriors fanship. '><i class='fa fa-twitter'></i></a></div>";
+        html_str += "<div class='link social-final'><a id='twitter-icon' title='Share on Twitter' href='https://twitter.com/intent/tweet?url=http%3A%2F%2Fwww.sfchronicle.com%2Fwarriors%2Farticle%2F2017-NBA-Finals-Quiz-Test-your-Warriors-and-Cavs-11186430.php&text=I got "+sum+" / 16 on the 2017 Chronicle NBA Finals Quiz! Test your Warriors and Cavs knowledge. '><i class='fa fa-twitter'></i></a></div>";
 
         // facebook link
-        html_str += "<div class='link social-final'><a id='facebook-icon' title='Share on Facebook' href='#' target='_blank' onclick='window.open(\"https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fprojects.sfchronicle.com%2F2016%2Fgeography-quiz\", \"facebook-share-dialog\", \"width=626,height=436\"); return false;'><i class='fa fa-facebook'></i></a></div>";
+        html_str += "<div class='link social-final'><a id='facebook-icon' title='Share on Facebook' href='#' target='_blank' onclick='window.open(\"https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.sfchronicle.com%2Fwarriors%2Farticle%2F2017-NBA-Finals-Quiz-Test-your-Warriors-and-Cavs-11186430.php\", \"facebook-share-dialog\", \"width=626,height=436\"); return false;'><i class='fa fa-facebook'></i></a></div>";
 
         // email link
-        html_str +="<div class='link social-final'><a id='mail-icon' title='Share via email' href='mailto:?subject=2017 Travel Geography Quiz: Test your global savvy&body=I got "+sum+" / 16 on the 2016 Chronicle Travel Geography Quiz! Take the test to to challenge your global knowledge. http%3A%2F%2Fprojects.sfchronicle.com%2F2016%2Fgeography-quiz'><i class='fa fa-envelope' aria-hidden='true'></i></a></div>";
+        html_str +="<div class='link social-final'><a id='mail-icon' title='Share via email' href='mailto:?subject=2017 NBA Finals Quiz: Warriors vs. Cavaliers&body=I got "+sum+" / 16 on the 2017 Chronicle NBA Finals Quiz! It’s the third straight championship meeting between the two teams, and we’ve loaded up on fun facts to celebrate the occasion. http%3A%2F%2Fwww.sfchronicle.com%2Fwarriors%2Farticle%2F2017-NBA-Finals-Quiz-Test-your-Warriors-and-Cavs-11186430.php'><i class='fa fa-envelope' aria-hidden='true'></i></a></div>";
 
-        html_str += "</div>"
-
+        html_str += "</div>";
       }
     });
     document.querySelector("#grade").innerHTML = html_str;
   }
   document.getElementById("grade").className = "active";
+  pymChild.sendHeight();
 
 });
